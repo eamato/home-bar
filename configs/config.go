@@ -74,7 +74,7 @@ func NewConfig() *Config {
 		configFilePath = "./.env.dev"
 	}
 
-	internal.PrintMessage("%s loading %s...", EVNameConfigFile, configFilePath)
+	internal.PrintMessage("%s loading %s", EVNameConfigFile, configFilePath)
 
 	env, err := godotenv.Read(configFilePath)
 	if err != nil {
@@ -133,7 +133,7 @@ func getStringValue(configFile map[string]string, configKey string) string {
 		printConfigError(configKey)
 	}
 
-	return configFile[configKey]
+	return result
 }
 
 //nolint:unused
@@ -141,7 +141,6 @@ func getStringArrayValue(configFile map[string]string, configKey string) []strin
 	return strings.Split(getStringValue(configFile, configKey), ",")
 }
 
-//nolint:unused
 func getBoolValue(configFile map[string]string, configKey string) bool {
 	var result bool
 	var err error
