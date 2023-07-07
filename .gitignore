@@ -168,4 +168,5 @@ $RECYCLE.BIN/
 /.idea/.gitignore
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea/home-bar.iml
 /data/
