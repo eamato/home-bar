@@ -65,7 +65,7 @@ func GetActualInterfaceValue(i interface{}) any {
 func GetKeys[K comparable, V any](source map[K]V) []K {
 	keys := make([]K, 0, len(source))
 
-	for key, _ := range source {
+	for key := range source {
 		keys = append(keys, key)
 	}
 
@@ -121,12 +121,11 @@ func PrintError(message string, error error) {
 		return
 	}
 
-	log.Printf(ColorizeStringRed(fmt.Sprintf("%s: %s", message, error.Error())))
+	log.Println(ColorizeStringRed(fmt.Sprintf("%s: %s", message, error.Error())))
 }
 
 func ToInterface[T any](source T) interface{} {
-	var result interface{}
-	result = source
+	var result interface{} = source
 	return result
 }
 

@@ -43,6 +43,5 @@ func JWTAuthMiddleware(secret string) gin.HandlerFunc {
 
 		c.Set(UserIDContextKey, userID)
 		c.Next()
-		return
 	}
 }

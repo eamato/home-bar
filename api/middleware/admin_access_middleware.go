@@ -44,6 +44,5 @@ func AdminAccessMiddleware(roleRepository domain.RoleRepository) gin.HandlerFunc
 		}
 
 		c.Next()
-		return
 	}
 }

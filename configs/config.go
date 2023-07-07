@@ -136,10 +136,12 @@ func getStringValue(configFile map[string]string, configKey string) string {
 	return configFile[configKey]
 }
 
+//nolint:unused
 func getStringArrayValue(configFile map[string]string, configKey string) []string {
 	return strings.Split(getStringValue(configFile, configKey), ",")
 }
 
+//nolint:unused
 func getBoolValue(configFile map[string]string, configKey string) bool {
 	var result bool
 	var err error
