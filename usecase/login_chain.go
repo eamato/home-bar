@@ -173,7 +173,11 @@ func (ggus *gettingGoogleUserStep) Execute(user *LoginUsersComposition, res *dom
 	}
 
 	response, err := http.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token=" + token.AccessToken)
-	defer response.Body.Close()
+	if err != nil {
+		return domain.NewUsecaseError(err, domain.ReasonServerError)
+	}
+
+	defer response.Body.Close() //nolint:errcheck
 
 	contents, err := io.ReadAll(response.Body)
 	if err != nil {
